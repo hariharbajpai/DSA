@@ -53,13 +53,53 @@ void levelodertraversal(Node* root){
     }
 }
 
+void inorder(Node* root){
+    //base case
+    if(root == NULL) return ;
+
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+}
+void preorder(Node* root){
+    if (root == NULL) return;
+    
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
+
+}
+void postorder(Node* root){
+    if (root == NULL) return;
+    
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<" ";
+}
 int main() {
     Node* root = nullptr;
 
     cout << "Creating the tree...\n";
     root = createTree();
 
+    // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
     cout << "Level order traversal...\n";
     levelodertraversal(root);
+    cout<<endl;
+
+    cout<<"inorder traversal is: ";
+    inorder(root);
+    cout<<endl;
+
+    cout<<"preorder traversal is: ";
+    preorder(root);
+    cout<<endl;
+
+    cout<<"postorder traversal is: ";
+    postorder(root);
+    cout<<endl;
+
+
     return 0;
+
 }
