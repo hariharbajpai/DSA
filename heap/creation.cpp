@@ -28,6 +28,22 @@ public:
         }
     }
 
+    //heap sort
+    void heapSort(int arr[],nt n){
+        int t = n;
+
+        while (t>1)
+        {
+            //step 1: swap
+            swap(arr[1],arr[t]);
+            t--;
+            //step 2: heapify
+            heapify(arr,t-1,1);
+
+        }
+        
+    }
+
     void print()
     {
         for (int i = 1; i <= size; i++)
@@ -80,11 +96,11 @@ void heapify(int arr[], int n , int i){
     int left = 2*i;
     int right = 2*i + 1;
 
-    if(left < n && arr[largest] < arr[left]) {
+    if(left <= n && arr[largest] < arr[left]) {
         largest = left;
     } 
 
-    if(right < n && arr[largest] < arr[right]) {
+    if(right <= n && arr[largest] < arr[right]) {
         largest = right;
     }
 
